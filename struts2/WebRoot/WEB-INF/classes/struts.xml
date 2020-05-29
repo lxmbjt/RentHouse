@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+
+
+
+
+<package name="struts2" extends="struts-default">
+
+	<action name="User_save" class="modify.action.UserAction" method="save">
+		<result name="save_success">/modify_success.jsp</result>
+		<result name="input">/personmodify.jsp</result>
+	</action>
+	<action name="House_save" class="modify.action.HouseAction" method="save">
+			<result name="save_success">/modify_success.jsp</result>
+			<result name="input">/housemodify.jsp</result>
+	</action>
+	
+	<action name="Login" class="struts2.action.LoginAction" method="execute">
+		<result name="success">/main.jsp</result>
+		<result name="fail">/login.jsp</result>
+	</action>
+	<action name="Register" class="struts2.action.RegisterAction" method="execute">
+		<result name="success">/login.jsp</result>
+		<result name="fail">/register.jsp</result>
+	</action>
+	<action name="Logout" class="struts2.action.LogoutAction" method="execute">
+		<result name="success">/main.jsp</result>
+		
+	</action>
+	<action name="Search" class="struts2.action.SearchAction" method="execute">
+		<result name="success">/search.jsp</result>
+		
+		
+	</action>
+	<action name="House" class="struts2.action.HouseAction" method="execute">
+		<result name="success">/house_new.jsp</result>
+		<result name="fail">/login.jsp</result>
+	</action>
+	<action name="SearchByTag" class="struts2.action.SearchByTagAction" method="execute">
+	<result name="success">/search.jsp</result>
+	
+		
+	</action>
+	<action name="Owner" class="struts2.action.OwnerAction" method="execute">
+	<result name="success">/owner.jsp</result>
+		
+	</action>
+	<action name="Person" class="struts2.action.PersonAction" method="execute">
+	<result name="success">/personalcenter.jsp</result>
+		
+	</action>
+	<action name="HouseModify" class="struts2.action.HouseModifyAction" method="execute">
+	<result name="success">/housemodify.jsp</result>
+		
+	</action>
+
+	<action name="StarModify" class="struts2.action.StarModifyAction" method="execute">
+	<result name="success">/starmodify.jsp</result>
+	
+		
+	</action>
+	<action name="Main" class="struts2.action.MainAction" method="execute">
+	<result name="success">/main.jsp</result>
+	</action>
+	<action name="OrderCancel" class="struts2.action.OrderCancelAction" method="execute">
+	<result name="success">/personalcenter.jsp</result>
+		
+	</action>
+	<action name="SetOrder" class="struts2.action.SetOrderAction" method="execute">
+	<result name="success">/personalcenter.jsp</result>
+		
+	</action>
+	<action name="HouseDelete" class="struts2.action.HouseDeleteAction" method="execute">
+	<result name="success">/personalcenter.jsp</result>
+		
+	</action>
+	<action name="HouseUp" class="struts2.action.HouseUpAction" method="execute">
+	<result name="success">/personalcenter.jsp</result>
+		
+	</action>
+	<action name="HouseOff" class="struts2.action.HouseOffAction" method="execute">
+	<result name="success">/personalcenter.jsp</result>
+		
+	</action>
+	
+	
+	<!-- 黎小曼 -->
+	<action name="AddFavorite" class="struts2.action.AddFavoriteAction" method="execute">
+	<result name="success">/house_new.jsp</result>
+	</action>
+	<action name="Report" class="struts2.action.ReportAction" method="execute">
+	<result name="success">/accuse_success.jsp</result>
+	<result name="fail">/accusation.jsp</result>
+	</action>
+</package>
+</struts>    

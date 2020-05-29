@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="modify.entity.Reservation" table="reservation" catalog="rent">
+        <id name="reverseId" type="java.lang.Integer">
+            <column name="reverse_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userByFUserIdOwner" class="modify.entity.User" fetch="select">
+            <column name="f_user_id_owner" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userByFUserIdRent" class="modify.entity.User" fetch="select">
+            <column name="f_user_id_rent" not-null="true" />
+        </many-to-one>
+        <property name="date" type="java.util.Date">
+            <column name="date" length="10" not-null="true" />
+        </property>
+        <property name="time" type="java.sql.Time">
+            <column name="time" length="8" />
+        </property>
+        <property name="position" type="java.lang.String">
+            <column name="position" />
+        </property>
+        <property name="message" type="java.lang.String">
+            <column name="message" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

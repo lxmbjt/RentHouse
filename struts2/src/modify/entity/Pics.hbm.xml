@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="modify.entity.Pics" table="pics" catalog="rent">
+        <id name="picsId" type="java.lang.Integer">
+            <column name="pics_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="house" class="modify.entity.House" fetch="select">
+            <column name="f_pic_house_id" not-null="true" />
+        </many-to-one>
+        <property name="pic" type="java.lang.String">
+            <column name="pic" length="65535" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

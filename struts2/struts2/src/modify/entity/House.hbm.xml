@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="modify.entity.House" table="house" catalog="rent">
+        <id name="houseId" type="java.lang.Integer">
+            <column name="house_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="modify.entity.User" fetch="select">
+            <column name="f_owner_id" not-null="true" />
+        </many-to-one>
+        <property name="houseTitle" type="java.lang.String">
+            <column name="housetitle" />
+        </property>
+        <property name="province" type="java.lang.Integer">
+            <column name="province" not-null="true" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="city" length="45" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" length="65535" />
+        </property>
+        <property name="roomNumber" type="java.lang.Integer">
+            <column name="room_number" />
+        </property>
+        <property name="rentType" type="java.lang.Integer">
+            <column name="rent_type" />
+        </property>
+        <property name="charge" type="java.lang.Integer">
+            <column name="charge" not-null="true" />
+        </property>
+        <property name="roomType" type="java.lang.Integer">
+            <column name="room_type" />
+        </property>
+        <property name="towards" type="java.lang.Integer">
+            <column name="towards" />
+        </property>
+        <property name="elevator" type="java.lang.Boolean">
+            <column name="elevator" />
+        </property>
+        <property name="storey" type="java.lang.Integer">
+            <column name="storey" />
+        </property>
+        <property name="bed" type="java.lang.Boolean">
+            <column name="bed" />
+        </property>
+        <property name="network" type="java.lang.Boolean">
+            <column name="network" />
+        </property>
+        <property name="airondition" type="java.lang.Boolean">
+            <column name="airondition" />
+        </property>
+        <property name="balcony" type="java.lang.Boolean">
+            <column name="balcony" />
+        </property>
+        <property name="refrigerator" type="java.lang.Boolean">
+            <column name="refrigerator" />
+        </property>
+        <property name="toilet" type="java.lang.Boolean">
+            <column name="toilet" />
+        </property>
+        <property name="kitchen" type="java.lang.Boolean">
+            <column name="kitchen" />
+        </property>
+        <property name="bath" type="java.lang.Boolean">
+            <column name="bath" />
+        </property>
+        <property name="heating" type="java.lang.Boolean">
+            <column name="heating" />
+        </property>
+        <property name="releaseTime" type="java.util.Date">
+            <column name="release_time" length="10" />
+        </property>
+        <property name="comment" type="java.lang.String">
+            <column name="comment" length="65535" />
+        </property>
+        <property name="chargeType" type="java.lang.Integer">
+            <column name="charge_type" />
+        </property>
+        <property name="livingroom" type="java.lang.Boolean">
+            <column name="livingroom" />
+        </property>
+        <set name="favorites" inverse="true">
+            <key>
+                <column name="f_house_id" not-null="true" />
+            </key>
+            <one-to-many class="modify.entity.Favorite" />
+        </set>
+        <set name="picses" inverse="true">
+            <key>
+                <column name="f_pic_house_id" not-null="true" />
+            </key>
+            <one-to-many class="modify.entity.Pics" />
+        </set>
+    </class>
+</hibernate-mapping>

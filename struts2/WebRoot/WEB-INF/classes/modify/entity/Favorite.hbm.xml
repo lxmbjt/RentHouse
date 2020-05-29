@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="modify.entity.Favorite" table="favorite" catalog="rent">
+        <id name="favoriteId" type="java.lang.Integer">
+            <column name="favorite_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="modify.entity.User" fetch="select">
+            <column name="f_user_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="house" class="modify.entity.House" fetch="select">
+            <column name="f_house_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

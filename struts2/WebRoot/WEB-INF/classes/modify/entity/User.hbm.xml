@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="modify.entity.User" table="user" catalog="rent">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="user_name" length="45" />
+        </property>
+        <property name="userNickName" type="java.lang.String">
+            <column name="user_nickname" length="45" not-null="true" />
+        </property>
+        <property name="gender" type="java.lang.Boolean">
+            <column name="gender" />
+        </property>
+        <property name="userAvatar" type="java.lang.String">
+            <column name="user_avatar" length="65535" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="phone" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="wechat" type="java.lang.String">
+            <column name="wechat" length="45" />
+        </property>
+        <property name="EMail" type="java.lang.String">
+            <column name="e_mail" length="45" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <property name="idcardNumber" type="java.lang.String">
+            <column name="idcard_number" length="18" />
+        </property>
+        <set name="houses" inverse="true">
+            <key>
+                <column name="f_owner_id" not-null="true" />
+            </key>
+            <one-to-many class="modify.entity.House" />
+        </set>
+        <set name="reservationsForFUserIdRent" inverse="true">
+            <key>
+                <column name="f_user_id_rent" not-null="true" />
+            </key>
+            <one-to-many class="modify.entity.Reservation" />
+        </set>
+        <set name="favorites" inverse="true">
+            <key>
+                <column name="f_user_id" not-null="true" />
+            </key>
+            <one-to-many class="modify.entity.Favorite" />
+        </set>
+        <set name="reservationsForFUserIdOwner" inverse="true">
+            <key>
+                <column name="f_user_id_owner" not-null="true" />
+            </key>
+            <one-to-many class="modify.entity.Reservation" />
+        </set>
+    </class>
+</hibernate-mapping>
