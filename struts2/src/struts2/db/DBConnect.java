@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBConnect {  
 	    private final String DBDRIVER ="com.mysql.cj.jdbc.Driver";   
 	   // private final String DBURL = "jdbc:mysql://localhost:3306/mystruts2db" ;   
-	    private final String DBURL = "jdbc:mysql://localhost:3306/snail" ;   
+	    private final String DBURL = "jdbc:mysql://localhost:3306/rent" ;   
 	    private final String DBUSER = "root" ;   
 	    private final String DBPASSWORD = "lxm,0026" ;   
 	    private Connection conn = null ;   
@@ -14,20 +14,20 @@ public class DBConnect {
 	    public DBConnect()   {   
 	        try{   
 	            Class.forName(DBDRIVER) ;   
-	            System.out.println("³É¹¦¼ÓÔØMySQLÇı¶¯³ÌĞò");
+	            System.out.println("æˆåŠŸåŠ è½½MySQLé©±åŠ¨ç¨‹åº");
 	            this.conn = DriverManager.getConnection(DBURL,DBUSER,DBPASSWORD) ;  
 	        }catch (Exception e){ 
-	        	System.out.println("Ã»Á¬ÉÏ ·³ËÀÁË");
+	        	System.out.println("æ²¡è¿ä¸Š çƒ¦æ­»äº†");
 	        	System.out.println(e.getMessage());  
 	        	}   
 	    }   
 	  
-	    // È¡µÃÊı¾İ¿âÁ¬½Ó   
+	    // å–å¾—æ•°æ®åº“è¿æ¥   
 	    public Connection getConnection(){   
 	        return this.conn ;   
 	    }   
 	  
-	    // ¹Ø±ÕÊı¾İ¿âÁ¬½Ó   
+	    // å…³é—­æ•°æ®åº“è¿æ¥   
 	    public void close(){   
 	        try{   
 	            this.conn.close() ;   
